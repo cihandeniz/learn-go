@@ -3,19 +3,16 @@ package main
 import "fmt"
 
 func main() {
-	len := 5
-	slice := 2
-
-	a := make([]int, len)
+	a := make([]int, 5)
 	printSlice("a", a)
 
-	b := make([]int, 0, len)
+	b := make([]int, 0, len(a))
 	printSlice("b", b)
 
-	c := b[:slice]
+	c := b[:2]
 	printSlice("c", c)
 
-	d := c[slice:len]
+	d := c[2:len(a)]
 	printSlice("d", d)
 }
 
