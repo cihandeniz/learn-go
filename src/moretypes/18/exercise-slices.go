@@ -6,8 +6,8 @@ import (
 	"golang.org/x/tour/pic"
 )
 
-func Pic(dx, dy int) (result [][]uint8) {
-	result = make([][]uint8, dy)
+func Pic(dx, dy int) [][]uint8 {
+	result := make([][]uint8, dy)
 	for y := range result {
 		result[y] = make([]uint8, dx)
 
@@ -15,7 +15,8 @@ func Pic(dx, dy int) (result [][]uint8) {
 			result[y][x] = uint8(math.Abs(float64(dx/2-x)) + math.Abs(float64(dy/2-y)))
 		}
 	}
-	return
+
+	return result
 }
 
 func main() {
