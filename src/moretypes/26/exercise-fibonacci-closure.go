@@ -5,15 +5,19 @@ import "fmt"
 // fibonacci is a function that returns
 // a function that returns an int.
 func fibonacci() func() int {
-	cur, last := 0, 0
+	cur, last := -1, -1
 
 	return func() int {
-		if cur == 0 && last == 0 {
+		if last < 0 {
+			last = 0
+			return last
+		} else if cur < 0 {
 			cur = 1
-		} else {
-			cur = cur + last
-			last = cur - last
+			return cur
 		}
+
+		cur = cur + last
+		last = cur - last
 
 		return cur
 	}
