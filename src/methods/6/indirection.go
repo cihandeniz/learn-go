@@ -19,10 +19,13 @@ func ScaleFunc(v *Vertex, f float64) {
 func main() {
 	v := Vertex{3, 4}
 	v.Scale(2)
+	(&v).Scale(1) // same as above
+
 	ScaleFunc(&v, 10)
 
 	p := &Vertex{4, 3}
 	p.Scale(3)
+
 	ScaleFunc(p, 8)
 
 	fmt.Println(v, p)
