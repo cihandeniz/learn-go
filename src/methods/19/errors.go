@@ -15,15 +15,28 @@ func (e *MyError) Error() string {
 		e.When, e.What)
 }
 
-func run() error {
-	return &MyError{
-		time.Now(),
-		"it didn't work",
+func divide(x, y int) (int, error) {
+	if y == 0 {
+		return 0, &MyError{time.Now(), "divide by zero"}
 	}
+
+	return x / y, nil
 }
 
 func main() {
-	if err := run(); err != nil {
+	result, err := divide(4, 2)
+	if err != nil {
 		fmt.Println(err)
+		return
 	}
+
+	fmt.Println(result)
+
+	result, err = divide(4, 0)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Println(result)
 }
