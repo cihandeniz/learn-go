@@ -7,10 +7,6 @@ type Person struct {
 	Age  int
 }
 
-type Stringer interface {
-	String() string
-}
-
 func (p Person) String() string {
 	return fmt.Sprintf("%v (%v years)", p.Name, p.Age)
 }
@@ -26,7 +22,7 @@ func print(values ...interface{}) {
 		}
 
 		switch stringer := value.(type) {
-		case Stringer:
+		case fmt.Stringer:
 			fmt.Print(stringer.String())
 		default:
 			fmt.Printf("%v (with default formatter)", stringer)
