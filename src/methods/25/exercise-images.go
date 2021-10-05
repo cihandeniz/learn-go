@@ -29,10 +29,7 @@ func (i *Image) ColorModel() color.Model {
 }
 
 func (i *Image) Bounds() image.Rectangle {
-	return image.Rectangle{
-		image.Point{0, 0},
-		image.Point{len(i.data), len(i.data)},
-	}
+	return image.Rect(0, 0, len(i.data), len(i.data))
 }
 
 func (i *Image) At(x, y int) color.Color {
