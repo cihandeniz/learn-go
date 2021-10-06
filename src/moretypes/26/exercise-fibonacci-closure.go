@@ -16,8 +16,7 @@ func fibonacci() func() int {
 			return cur
 		}
 
-		cur = cur + last
-		last = cur - last
+		last, cur = cur, cur+last
 
 		return cur
 	}
